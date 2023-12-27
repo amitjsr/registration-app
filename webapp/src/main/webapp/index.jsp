@@ -1,97 +1,77 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+
+    <!-- Add your custom styles here -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         .container {
-            background-color: #ffffff;
-            padding: 16px;
-            margin: 8% auto;
-            width: 30%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
         }
 
         h1 {
-            text-align: center;
             color: #333;
         }
 
-        label {
-            margin-bottom: 10px;
-            display: block;
-            color: #333;
+        p {
+            color: #666;
         }
 
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        .container signin {
-            text-align: center;
-        }
-
-        .container p {
-            text-align: center;
+        #countdown {
+            color: #777;
+            font-size: 24px;
+            font-weight: bold;
         }
     </style>
+
+    <!-- Add your custom scripts here -->
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 1, 2024 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown").innerHTML =
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 </head>
 <body>
-
-<form action="action_page.php" method="post" class="container">
-    <h1>New user Register for DevOps Learning at TickRight</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
-
-    <label for="Name"><b>Enter Name</b></label>
-    <input type="text" placeholder="Enter Full Name" name="Name" id="Name" required>
-
-    <label for="mobile"><b>Enter Mobile</b></label>
-    <input type="text" placeholder="Enter Mobile Number" name="mobile" id="mobile" required>
-
-    <label for="email"><b>Enter Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-
-    <hr>
-
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
-</form>
-
-<div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-</div>
-
-<h1 style="text-align: center;">Thank You, Happy Learning</h1>
-<h1 style="text-align: center;">See You Again Next Time</h1>
-
+    <div class="container">
+        <h1>Coming Soon!</h1>
+        <p>We are working hard to bring you something awesome. Stay tuned!</p>
+        <div id="countdown"></div>
+    </div>
 </body>
 </html>
