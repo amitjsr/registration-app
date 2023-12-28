@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon with Bang</title>
+    <title>Basketkaro</title>
 
     <!-- Add your custom styles here -->
     <style>
@@ -69,7 +69,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Coming Soon!</h1>
+        <h1>Coming Soon with a Bang!</h1>
         <p>We are working hard to bring you something awesome. Stay tuned!</p>
         <div id="countdown"></div>
     </div>
